@@ -63,6 +63,16 @@ struct ContentView: View {
                     .font(.title.bold())
                 
                 Spacer()
+                
+                Button(action: restartGame) {
+                    Image(systemName: "gobackward")
+                        .font(.title)
+                        .padding()
+                        .background(.regularMaterial)
+                        .clipShape(Capsule())
+                        .shadow(radius: 5)
+                }
+                
             }
             .padding()
         }
@@ -108,6 +118,9 @@ struct ContentView: View {
         askQuestion()
     }
 }
+
+
+
 
 
 

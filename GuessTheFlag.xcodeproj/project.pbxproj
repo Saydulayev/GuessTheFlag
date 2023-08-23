@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C03679B32A95F5CD00C24048 /* GMP_U2F2ZUdIMDE=.GIF in Resources */ = {isa = PBXBuildFile; fileRef = C03679B22A95F5CD00C24048 /* GMP_U2F2ZUdIMDE=.GIF */; };
 		C0DEDE502A9346ED0053ABD9 /* GuessTheFlagApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DEDE4F2A9346ED0053ABD9 /* GuessTheFlagApp.swift */; };
 		C0DEDE522A9346ED0053ABD9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DEDE512A9346ED0053ABD9 /* ContentView.swift */; };
 		C0DEDE542A9346EE0053ABD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0DEDE532A9346EE0053ABD9 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C03679B22A95F5CD00C24048 /* GMP_U2F2ZUdIMDE=.GIF */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GMP_U2F2ZUdIMDE=.GIF"; sourceTree = "<group>"; };
 		C0DEDE4C2A9346ED0053ABD9 /* GuessTheFlag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessTheFlag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0DEDE4F2A9346ED0053ABD9 /* GuessTheFlagApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheFlagApp.swift; sourceTree = "<group>"; };
 		C0DEDE512A9346ED0053ABD9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +34,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C03679B12A95F5AF00C24048 /* gif */ = {
+			isa = PBXGroup;
+			children = (
+				C03679B22A95F5CD00C24048 /* GMP_U2F2ZUdIMDE=.GIF */,
+			);
+			path = gif;
+			sourceTree = "<group>";
+		};
 		C0DEDE432A9346ED0053ABD9 = {
 			isa = PBXGroup;
 			children = (
@@ -53,6 +63,7 @@
 			children = (
 				C0DEDE4F2A9346ED0053ABD9 /* GuessTheFlagApp.swift */,
 				C0DEDE512A9346ED0053ABD9 /* ContentView.swift */,
+				C03679B12A95F5AF00C24048 /* gif */,
 				C0DEDE532A9346EE0053ABD9 /* Assets.xcassets */,
 				C0DEDE552A9346EE0053ABD9 /* Preview Content */,
 			);
@@ -126,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0DEDE572A9346EE0053ABD9 /* Preview Assets.xcassets in Resources */,
+				C03679B32A95F5CD00C24048 /* GMP_U2F2ZUdIMDE=.GIF in Resources */,
 				C0DEDE542A9346EE0053ABD9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
