@@ -19,14 +19,13 @@ Realistic flag images to enhance the learning experience.
 Keep track of your score as you play.
 Play a total of 8 questions, followed by a final score display.
 Option to restart the game and challenge yourself again.
+
 ## Technologies Used:
 SwiftUI: The user interface is built using Apple's SwiftUI framework.
 State Management: Utilized the @State property wrapper to manage UI state.
 Alerts: Display alerts for correct and incorrect answers, as well as the final score.
 System Images: Incorporated system images for intuitive user interactions.
 Shuffling: Randomly shuffle the country options and generate new questions.
-Screenshots:
-(You can include some screenshots here showcasing the app's interface and gameplay.)
 
 ## Getting Started:
 Clone the repository to your local machine.
