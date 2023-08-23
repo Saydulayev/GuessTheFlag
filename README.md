@@ -32,7 +32,7 @@ Clone the repository to your local machine.
 Open the Xcode project.
 Build and run the app on the iOS Simulator or a physical device.
 Play the game by guessing the flags and see how high you can score!
-Contributions:
+##Contributions:
 Contributions, bug reports, and feature requests are welcome! Feel free to fork this repository and submit pull requests.
 
 ## Contact
