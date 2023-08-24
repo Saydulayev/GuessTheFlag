@@ -28,8 +28,7 @@ struct ContentView: View {
                 Spacer()
                 
                 Text("Guess the Flag")
-                    .font(.largeTitle.bold())
-                    .foregroundColor(.white)
+                    .customStyle()
                 
                 VStack(spacing: 15) {
                     VStack {
@@ -64,6 +63,7 @@ struct ContentView: View {
                 Button(action: restartGame) {
                     Image(systemName: "gobackward")
                         .font(.title)
+                        .foregroundStyle(.mint)
                         .padding()
                         .background(.regularMaterial)
                         .clipShape(Capsule())
@@ -130,7 +130,20 @@ struct FlagImage: View {
 }
 
 
+struct CustomStyleModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle.bold())
+            .foregroundColor(.blue)
+            .shadow(radius: 5)
+    }
+}
 
+extension View {
+    func customStyle() -> some View {
+        self.modifier(CustomStyleModifier())
+    }
+}
 
 
 
