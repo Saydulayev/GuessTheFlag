@@ -63,7 +63,7 @@ struct ContentView: View {
                 Button(action: restartGame) {
                     Image(systemName: "gobackward")
                         .font(.title)
-                        .foregroundStyle(.mint)
+                        .foregroundStyle(.secondary)
                         .padding()
                         .background(.regularMaterial)
                         .clipShape(Capsule())
