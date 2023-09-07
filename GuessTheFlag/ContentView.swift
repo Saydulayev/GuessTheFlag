@@ -76,7 +76,7 @@ struct ContentView: View {
                 Spacer()
                 Spacer()
                 
-                Text("Score: \(userScore)")
+                Text("Score: \(userScore) out of 10")
                     .foregroundColor(.white)
                     .font(.title.bold())
                 
@@ -96,14 +96,15 @@ struct ContentView: View {
             .padding()
         }
         .alert(scoreTitle, isPresented: $showingScore) {
-            if questionCount < 8 {
+            if questionCount < 10 {
                 Button("Continue", action: askQuestion)
             } else {
                 Button("Restart", action: restartGame)
             }
-        } message: {
-            Text("Your final score is \(userScore) out of 8")
         }
+//    message: {
+//            Text("Your final score is \(userScore) out of 8")
+//        }
     }
     
     func flagTapped(_ number: Int) {
@@ -119,7 +120,6 @@ struct ContentView: View {
         
         questionCount += 1
         
-        // Rotate only the tapped flag 360 degrees
         withAnimation(.interpolatingSpring(stiffness: 5, damping: 1)) {
             rotationAngles[number] += 360
         }
