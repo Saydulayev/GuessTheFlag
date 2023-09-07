@@ -8,13 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     
     @State private var showingScore = false
     @State private var scoreTitle = ""
-    @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
+    
     @State private var correctAnswer = Int.random(in: 0...2)
     @State private var userScore = 0
     @State private var questionCount = 0
+    
+    @State private var rotationAngle: Double = 0.0
+    @State private var rotationAngles: [Double] = [0.0, 0.0, 0.0]
+    
+    @State private var isCorrectAnswerSelected = false
+    @State private var isIncorrectAnswerSelected = false
+
+    
+    
+    
+    var rotationBindings: [Binding<Double>] {
+        (0..<3).map { i in
+            .constant(rotationAngles[i])
+        }
+    }
+
+
+
     
     var body: some View {
         ZStack {
@@ -42,7 +61,10 @@ struct ContentView: View {
                         Button {
                             flagTapped(number)
                         } label: {
-                            FlagImage(country: countries[number])
+                            FlagImage(country: countries[number], rotationAngle: rotationAngles[number])
+                                .opacity((isCorrectAnswerSelected || isIncorrectAnswerSelected) && number != correctAnswer ? 0.25 : 1.0)
+                                .scaleEffect(isIncorrectAnswerSelected && number != correctAnswer ? 0.8 : 1.0)
+                                .rotation3DEffect(.degrees(isIncorrectAnswerSelected && number != correctAnswer ? 180 : 0), axis: (x: 0, y: 1, z: 0))
                         }
                     }
                 }
@@ -88,12 +110,19 @@ struct ContentView: View {
         if number == correctAnswer {
             scoreTitle = "Correct"
             userScore += 1
+            isCorrectAnswerSelected = true
         } else {
             let correctFlag = countries[number]
             scoreTitle = "Wrong! \nIt's the flag of \(correctFlag)"
+            isIncorrectAnswerSelected = true
         }
         
         questionCount += 1
+        
+        // Rotate only the tapped flag 360 degrees
+        withAnimation(.interpolatingSpring(stiffness: 5, damping: 1)) {
+            rotationAngles[number] += 360
+        }
         
         if questionCount < 8 {
             showingScore = true
@@ -101,8 +130,17 @@ struct ContentView: View {
             scoreTitle = "Final Score"
             showingScore = true
         }
+        
+        // Reset the flags to their initial state
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            withAnimation {
+                isCorrectAnswerSelected = false
+                isIncorrectAnswerSelected = false
+                rotationAngles = [0.0, 0.0, 0.0]
+            }
+        }
     }
-    
+
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
@@ -120,14 +158,18 @@ struct ContentView: View {
 
 struct FlagImage: View {
     var country: String
-    
+    var rotationAngle: Double
+
     var body: some View {
         Image(country)
             .renderingMode(.original)
             .clipShape(Capsule())
             .shadow(radius: 5)
+            .rotation3DEffect(.degrees(rotationAngle), axis: (x: 0, y: 1, z: 0))
     }
 }
+
+
 
 
 struct CustomStyleModifier: ViewModifier {
