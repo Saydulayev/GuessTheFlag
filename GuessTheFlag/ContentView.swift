@@ -109,7 +109,7 @@ struct ContentView: View {
     
     func flagTapped(_ number: Int) {
         if number == correctAnswer {
-            scoreTitle = "Correct"
+            scoreTitle = "✅"
             userScore += 1
             isCorrectAnswerSelected = true
         } else {
@@ -127,7 +127,6 @@ struct ContentView: View {
         if questionCount < 8 {
             showingScore = true
         } else {
-            scoreTitle = "Final Score"
             showingScore = true
         }
         
@@ -137,6 +136,11 @@ struct ContentView: View {
                 isCorrectAnswerSelected = false
                 isIncorrectAnswerSelected = false
                 rotationAngles = [0.0, 0.0, 0.0]
+                if questionCount < 10 {
+                    askQuestion()
+                } else {
+                    restartGame()
+                }
             }
         }
     }
